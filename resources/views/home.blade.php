@@ -1,39 +1,25 @@
-<!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        @vite('resources/css/app.css')
-        <title>Home</title>
-    </head>
-    <body class="antialiased">
-        
-<nav class="bg-white border-gray-200 dark:bg-gray-900 z-10 shadow-lg">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="https://flowbite.com/" target="_blank" class="flex items-center">
-          <img src="{{ asset('/logos/recruit.png') }}" class="h-8 mr-3" alt="CRMS Logo"/>
-          <span class="self-center font-bold whitespace-nowrap dark:text-white">Campus Recruitment MS</span>
-      </a>
-      <div class="w-full md:w-auto" id="navbar-default">
-        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-          <li>
-            <a href="#" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Register</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Company Login</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Company Register</a>
-          </li>
-        </ul>
-      </div>
+@extends("layouts.navbar")
+
+@section("content")
+<div class="m-3">
+  <div class="flex mb-4">
+    <div class="justify-center">
+      <img src="{{ asset('/images/recruit.jpg') }}" alt="CRMS Logo"/>
     </div>
-  </nav>
-  
-    </body>
-</html>
+    <div class="w-1/2 justify-center">
+      <center>
+        <h2 style="font-size: 30px; margin-top: 100px" class="text-2xl">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad ipsum omnis architecto.</h2>
+      <h5 class="text-sm mt-3">
+        Eum et praesentium officiis voluptatibus obcaecati voluptatum, 
+        quo dolorem nulla non totam nisi culpa animi magnam modi deserunt!
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas, quidem quis. Eos eveniet, natus soluta, 
+        labore veritatis enim repellat tempore ducimus laudantium quibusdam tenetur officiis reiciendis provident eaque magni corporis!
+      </h5>
+      <button onClick="window.location ='{{url("/login")}}'" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded mt-3">
+        Login
+      </button>
+      </center>
+    </div>
+  </div>
+</div>
+@endsection
