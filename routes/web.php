@@ -27,7 +27,16 @@ Route::get('/register', function () {
 Route::get('/company-login', function () {
     return view('companyLogin');
 });
+
 Route::get('/company-register', function () {
     return view('companyRegister');
+});
+
+Route::get('/jobs', function () {
+    return view('jobs');
+});
+
+Route::get('/job-description', function () {
+    return view('jobDescription');
 });
 
