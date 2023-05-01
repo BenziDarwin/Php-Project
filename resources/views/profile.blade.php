@@ -18,47 +18,29 @@
 <!-- component -->
         <div class="flex flex-col justify-center items-center h-[60vh]">
             <div class="relative flex flex-col items-center rounded-[20px] w-[700px] max-w-[95%] mx-auto bg-white bg-clip-border shadow-3xl shadow-shadow-500 dark:!bg-navy-800 dark:text-white dark:!shadow-none p-3">
-                <div class="mt-2 mb-8 w-full">
-                    <h4 class="px-2 text-xl font-bold text-navy-700 dark:text-white">
-                    Job Title
-                    </h4>
-                    <p class="mt-2 px-2 text-base text-gray-600">
-                    As we live, our hearts turn colder. Cause pain is what we go through
-                    as we become older. We get insulted by others, lose trust for those
-                    others. We get back stabbed by friends. It becomes harder for us to
-                    give others a hand. We get our heart broken by people we love, even
-                    that we give them all...
-                    </p>
-                </div> 
                 <div class="grid grid-cols-2 gap-4 px-2 w-full">
                     <div class="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-                    <p class="text-sm text-gray-600">Location</p>
+                    <p class="text-sm text-gray-600">Name</p>
                     <p class="text-base font-medium text-navy-700 dark:text-white">
-                        Stanford University
+                        {{$user->name}}
                     </p>
                     </div>
 
                     <div class="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-                    <p class="text-sm text-gray-600">Skills</p>
+                    <p class="text-sm text-gray-600">Student Number</p>
                     <p class="text-base font-medium text-navy-700 dark:text-white">
-                        English, Spanish, Italian
+                        {{$user->stdNo}}
                     </p>
                     </div>
 
                     <div class="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-                    <p class="text-sm text-gray-600">Category</p>
+                    <p class="text-sm text-gray-600">Course</p>
                     <p class="text-base font-medium text-navy-700 dark:text-white">
-                        Information Technology & Software Developement
-                    </p>
-                    </div>
-                    <div class="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-                    <p class="text-sm text-gray-600">Salary Range</p>
-                    <p class="text-base font-medium text-navy-700 dark:text-white">
-                        1.1m - 1.7m per month
+                        {{$user->course}}
                     </p>
                     </div>
                 </div>
-                <button type="submit" class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Apply for Job</button>
+                <button type="submit" class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit Profile</button>
             </div>  
         </div>
 @endsection

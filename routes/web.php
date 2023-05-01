@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Models\Users;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,4 +43,16 @@ Route::get('/jobs', function () {
 Route::get('/job-description', function () {
     return view('jobDescription');
 });
+
+Route::get('/profile', function () {
+    return view('profile',[
+        "user" => DB::table('users')->where('name', Session::get("name"))->first(),
+    ]);
+});
+
+Route::get('/logout', [UserController::class, 'logout']);
+
+Route::get('/login-user', [UserController::class, "login"]);
+
+Route::get('/register-user', [UserController::class, "createUser"]);
 

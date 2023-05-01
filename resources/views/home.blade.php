@@ -1,6 +1,9 @@
 @extends("layouts.navbar")
 
 @section("content")
+<?php
+  $_SESSION["LoggedIn"] = false;
+  ?>
 <div class="m-3">
   <div class="flex mb-4">
     <div class="justify-center">
