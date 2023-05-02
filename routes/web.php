@@ -40,11 +40,16 @@ Route::get('/company-register', function () {
 });
 
 Route::get('/jobs', function () {
-    return view('jobs');
+    return view('jobs', [
+        "jobs" =>  Jobs::all(), 
+        "user" => DB::table('users')->where('name', Session::get("name"))->first(),
+    ]);
 });
 
-Route::get('/job-description', function () {
-    return view('jobDescription');
+Route::get('/job-description/{jobID}', function ($jobID) {
+    return view('jobDescription',[
+        "job" => Jobs::find($jobID)
+    ]);
 });
 
 Route::get('/profile', function () {
