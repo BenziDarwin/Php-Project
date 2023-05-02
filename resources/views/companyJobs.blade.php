@@ -27,31 +27,23 @@
         </li>
     </ul>
 </div>
-<div class="flex flex-col justify-center items-center h-[60vh]">
-    <div class="relative flex flex-col items-center rounded-[20px] w-[700px] max-w-[95%] mx-auto bg-white bg-clip-border shadow-3xl shadow-shadow-500 dark:!bg-navy-800 dark:text-white dark:!shadow-none p-3">
-        <div class="grid grid-cols-2 gap-4 px-2 w-full">
-            <div class="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-            <p class="text-sm text-gray-600">Name</p>
-            <p class="text-base font-medium text-navy-700 dark:text-white">
-                {{$company->companyName}}
-            </p>
-            </div>
 
-            <div class="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-            <p class="text-sm text-gray-600">Address</p>
-            <p class="text-base font-medium text-navy-700 dark:text-white">
-                {{$company->Address}}
-            </p>
-            </div>
-            <div class="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-                <p class="text-sm text-gray-600">Sector</p>
-                <p class="text-base font-medium text-navy-700 dark:text-white">
-                    {{$company->sector}}
-                </p>
-                </div>
-        </div>
-        <button type="submit" class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5">Edit Profile</button>
-    </div>  
-</div>
+<ul class="m-5">
+@foreach($jobs as $job)
+<a href="#" class="flex items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 m-3">
+    <div class="flex flex-col justify-between p-4 leading-normal">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$job["title"]}}</h5>
+        <p class="text-ellipsis mb-3 font-normal text-gray-700 dark:text-gray-400">{{$job["description"]}}</p>
+    </div>
+</a>
+@endforeach
 
+<a href="#" class="flex items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 m-3">
+    <div class="flex flex-col justify-between p-4 leading-normal">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+    </div>
+</a>
+
+</ul>
 @endsection

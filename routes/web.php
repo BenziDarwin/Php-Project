@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Models\Jobs;
 use App\Models\Users;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -65,6 +67,12 @@ Route::get('/create-job', function () {
     return view('createJob');
 });
 
+Route::get('/company-jobs', function () {
+    return view('companyJobs', [
+       "jobs" =>  Jobs::where("companyname", "==", Session::get("name")),
+    ]);
+});
+
 Route::get('/logout', [UserController::class, 'logout']);
 
 Route::get('/login-user', [UserController::class, "login"]);
@@ -76,4 +84,6 @@ Route::get('/company-logout', [CompanyController::class, 'logout']);
 Route::get('/login-company', [CompanyController::class, "login"]);
 
 Route::get('/register-company', [CompanyController::class, "createCompany"]);
+
+Route::get('/create-job-start', [JobController::class, "createJob"]);
 
