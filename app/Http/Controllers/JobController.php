@@ -15,6 +15,7 @@ class JobController extends Controller
             'title' => $request['title'],
             'description' => $request['description'],
             'salaryrange' => $request['salaryrange'],
+            "sector" => $request['sector'],
             'companyname' => $request['companyname'],
         ]);
         return redirect()->intended('/applications');

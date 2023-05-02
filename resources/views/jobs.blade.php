@@ -20,71 +20,16 @@
 <div class="flex flex-wrap justify-center mt-10">
 
     <!-- card 1 -->
-    <div class="p-4 max-w-sm">
-        <div class="flex rounded-lg h-full  bg-gray-300 p-8 flex-col">
-            <div class="flex items-center mb-3">
-                <h2 class="text-black text-lg font-medium">Feature 1</h2>
-            </div>
-            <div class="flex flex-col justify-between flex-grow">
-                <p class="leading-relaxed text-base text-gray-600">Blue bottle crucifix vinyl post-ironic four dollar
-                    toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
-                <a href="{{url('/job-description')}}" class="mt-3 text-black hover:text-blue-600 inline-flex items-center">Learn More
-                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- card 2 -->
-    <div class="p-4 max-w-sm">
-        <div class="flex rounded-lg h-full  bg-gray-300 p-8 flex-col">
-            <div class="flex items-center mb-3">
-                <h2 class="text-black text-lg font-medium">Feature 2</h2>
-            </div>
-            <div class="flex flex-col justify-between flex-grow">
-                <p class="leading-relaxed text-base text-gray-600">Lorem ipsum dolor sit amet. In quos laboriosam non
-                    neque eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum inventore et maxime amet.</p>
-                <a href="#" class="mt-3 text-black hover:text-blue-600 inline-flex items-center">Learn More
-                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- card 3 -->
-    <div class="p-4 max-w-sm">
-        <div class="flex rounded-lg h-full  bg-gray-300 p-8 flex-col">
-            <div class="flex items-center mb-3">
-                <h2 class="text-black text-lg font-medium">Feature 3</h2>
-            </div>
-            <div class="flex flex-col justify-between flex-grow">
-                <p class="leading-relaxed text-base text-gray-600">Lorem ipsum dolor sit amet. In quos laboriosam non
-                    neque eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum inventore et maxime amet.</p>
-                <a href="#" class="mt-3 text-black hover:text-blue-600 inline-flex items-center">Learn More
-                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </div>
-  <!-- card 1 -->
+  @foreach($jobs as $job)
+    @if($job->sector == $user->course)
   <div class="p-4 max-w-sm">
     <div class="flex rounded-lg h-full  bg-gray-300 p-8 flex-col">
         <div class="flex items-center mb-3">
-            <h2 class="text-black text-lg font-medium">Feature 1</h2>
+            <h2 class="text-black text-lg font-medium">{{$job->title}}</h2>
         </div>
         <div class="flex flex-col justify-between flex-grow">
-            <p class="leading-relaxed text-base text-gray-600">Blue bottle crucifix vinyl post-ironic four dollar
-                toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
-            <a href="#" class="mt-3 text-black hover:text-blue-600 inline-flex items-center">Learn More
+            <p class="leading-relaxed text-base text-gray-600">{{$job->salaryrange}}</p>
+            <a href="{{url("/job-description/$job->id")}}" class="mt-3 text-black hover:text-blue-600 inline-flex items-center">Learn More
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                     stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -93,44 +38,8 @@
         </div>
     </div>
 </div>
-
-<!-- card 2 -->
-<div class="p-4 max-w-sm">
-    <div class="flex rounded-lg h-full  bg-gray-300 p-8 flex-col">
-        <div class="flex items-center mb-3">
-            <h2 class="text-black text-lg font-medium">Feature 2</h2>
-        </div>
-        <div class="flex flex-col justify-between flex-grow">
-            <p class="leading-relaxed text-base text-gray-600">Lorem ipsum dolor sit amet. In quos laboriosam non
-                neque eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum inventore et maxime amet.</p>
-            <a href="#" class="mt-3 text-black hover:text-blue-600 inline-flex items-center">Learn More
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-            </a>
-        </div>
-    </div>
-</div>
-
-<!-- card 3 -->
-<div class="p-4 max-w-sm">
-    <div class="flex rounded-lg h-full bg-gray-300 p-8 flex-col">
-        <div class="flex items-center mb-3">
-            <h2 class="text-black text-lg font-medium">Feature 3</h2>
-        </div>
-        <div class="flex flex-col justify-between flex-grow">
-            <p class="leading-relaxed text-base text-gray-600">Lorem ipsum dolor sit amet. In quos laboriosam non
-                neque eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum inventore et maxime amet.</p>
-            <a href="#" class="mt-3 text-black hover:text-blue-600 inline-flex items-center">Learn More
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-            </a>
-        </div>
-    </div>
-</div>
+    @endif
+  @endforeach
 </div>
 
 

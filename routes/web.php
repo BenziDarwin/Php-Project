@@ -40,11 +40,16 @@ Route::get('/company-register', function () {
 });
 
 Route::get('/jobs', function () {
-    return view('jobs');
+    return view('jobs', [
+        "jobs" =>  Jobs::all(), 
+        "user" => DB::table('users')->where('name', Session::get("name"))->first(),
+    ]);
 });
 
-Route::get('/job-description', function () {
-    return view('jobDescription');
+Route::get('/job-description/{jobID}', function ($jobID) {
+    return view('jobDescription',[
+        "job" => Jobs::find($jobID)
+    ]);
 });
 
 Route::get('/profile', function () {
@@ -64,12 +69,14 @@ Route::get('/applications', function () {
 });
 
 Route::get('/create-job', function () {
-    return view('createJob');
+    return view('createJob', [
+        "company" => DB::table('companies')->where('companyName', Session::get("name"))->first(),
+    ]);
 });
 
 Route::get('/company-jobs', function () {
     return view('companyJobs', [
-       "jobs" =>  Jobs::where("companyname", "==", Session::get("name")),
+       "jobs" =>  Jobs::all(),
     ]);
 });
 
