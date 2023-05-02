@@ -10,10 +10,17 @@
     <div id="navbar">
     <nav class="bg-white border-gray-200 dark:bg-gray-900 z-10 shadow-lg">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="{{url("/")}}" class="flex items-center">
+          @if(Session::get("name") != null) 
+      <a href="{{url("/jobs")}}" class="flex items-center">
           <img src="{{ asset('/logos/recruit.png') }}" class="h-8 mr-3" alt="CRMS Logo"/>
           <span class="self-center font-bold whitespace-nowrap dark:text-white">Campus Recruitment MS</span>
       </a>
+      @else
+      <a href="{{url("/")}}" class="flex items-center">
+        <img src="{{ asset('/logos/recruit.png') }}" class="h-8 mr-3" alt="CRMS Logo"/>
+        <span class="self-center font-bold whitespace-nowrap dark:text-white">Campus Recruitment MS</span>
+    </a>
+    @endif
       <div class="w-full md:w-auto" id="navbar-default">
         <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
           <?php

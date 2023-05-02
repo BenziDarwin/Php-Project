@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Models\Users;
@@ -50,9 +51,29 @@ Route::get('/profile', function () {
     ]);
 });
 
+Route::get('/company-profile', function () {
+    return view('companyProfile',[
+        "company" => DB::table('companies')->where('companyName', Session::get("name"))->first(),
+    ]);
+});
+
+Route::get('/applications', function () {
+    return view('applications');
+});
+
+Route::get('/create-job', function () {
+    return view('createJob');
+});
+
 Route::get('/logout', [UserController::class, 'logout']);
 
 Route::get('/login-user', [UserController::class, "login"]);
 
 Route::get('/register-user', [UserController::class, "createUser"]);
+
+Route::get('/company-logout', [CompanyController::class, 'logout']);
+
+Route::get('/login-company', [CompanyController::class, "login"]);
+
+Route::get('/register-company', [CompanyController::class, "createCompany"]);
 

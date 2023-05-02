@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("companyName")->unique();
             $table->string("Address");
+            $table->string("sector");
             $table->string("password");
         });
     }
