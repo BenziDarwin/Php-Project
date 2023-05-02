@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->string("title");
-            $table->string("description");
+            $table->longText("description");
             $table->string("salaryrange");
-            $table->foreign("companyName")->references("companyName")->on("companies");
+            $table->string("sector");
+            $table->string("companyname");
+            $table->foreign("companyname")->references("companyName")->on("companies")->onDelete("cascade");
         });
     }
 

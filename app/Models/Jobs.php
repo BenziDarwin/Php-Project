@@ -17,6 +17,7 @@ class Jobs extends Model
         'title',
         'description',
         "salaryrange",
-        "companyname"
+        "companyname",
+        "sector"
     ];
 }

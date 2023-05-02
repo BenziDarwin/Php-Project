@@ -28,22 +28,17 @@
     </ul>
 </div>
 
-<ul class="m-5">
+<div class="m-5">
 @foreach($jobs as $job)
-<a href="#" class="flex items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 m-3">
-    <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$job["title"]}}</h5>
-        <p class="text-ellipsis mb-3 font-normal text-gray-700 dark:text-gray-400">{{$job["description"]}}</p>
-    </div>
-</a>
+    @if($job["companyname"] == Session::get("name"))
+        <a href="#" class="flex items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 m-3 text-ellipsis overflow-hidden">
+            <div class="flex flex-col justify-between p-4 leading-normal">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$job["title"]}}</h5>
+                <h6>Salary Range:</h6>
+                <p class="text-ellipsis mb-3 font-normal text-gray-700 dark:text-gray-400">{{$job["salaryrange"]}}</p>
+            </div>
+        </a>
+    @endif
 @endforeach
-
-<a href="#" class="flex items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 m-3">
-    <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-    </div>
-</a>
-
-</ul>
+</div>
 @endsection

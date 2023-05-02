@@ -64,12 +64,14 @@ Route::get('/applications', function () {
 });
 
 Route::get('/create-job', function () {
-    return view('createJob');
+    return view('createJob', [
+        "company" => DB::table('companies')->where('companyName', Session::get("name"))->first(),
+    ]);
 });
 
 Route::get('/company-jobs', function () {
     return view('companyJobs', [
-       "jobs" =>  Jobs::where("companyname", "==", Session::get("name")),
+       "jobs" =>  Jobs::all(),
     ]);
 });
 

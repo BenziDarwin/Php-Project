@@ -13,6 +13,7 @@
       <center>
         <h2 style="font-size: 30px; margin-top: 100px" class="text-2xl">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad ipsum omnis architecto.</h2>
       <h5 class="text-sm mt-3">
+        lor
         Eum et praesentium officiis voluptatibus obcaecati voluptatum, 
         quo dolorem nulla non totam nisi culpa animi magnam modi deserunt!
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas, quidem quis. Eos eveniet, natus soluta, 
