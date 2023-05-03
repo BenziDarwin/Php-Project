@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Models\Application;
 use App\Models\Jobs;
 use App\Models\Users;
 use Illuminate\Support\Facades\DB;
@@ -65,7 +67,15 @@ Route::get('/company-profile', function () {
 });
 
 Route::get('/applications', function () {
-    return view('applications');
+    return view('applications', [
+        "applications" => Application::all(),
+    ]);
+});
+
+Route::get('/user-applications', function () {
+    return view('userApplications', [
+        "applications" => Application::all(),
+    ]);
 });
 
 Route::get('/create-job', function () {
@@ -93,4 +103,6 @@ Route::get('/login-company', [CompanyController::class, "login"]);
 Route::get('/register-company', [CompanyController::class, "createCompany"]);
 
 Route::get('/create-job-start', [JobController::class, "createJob"]);
+
+Route::get('/create-application', [ApplicationsController::class, "createApplication"]);
 

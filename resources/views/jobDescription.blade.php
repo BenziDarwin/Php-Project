@@ -47,7 +47,12 @@
                     </p>
                     </div>
                 </div>
-                <button type="submit" class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Apply for Job</button>
+                <form action="{{url("create-application")}}">
+                    <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 my-5 p-3"  accept="application/pdf" id="resume" name="resume" type="file">
+                    <input type="hidden"  name="companyName" value="{{$job->companyname}}"/>
+                    <input type="hidden"  name="applierName" value="{{Session::get("name")}}"/>
+                    <button type="submit" class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Apply for Job</button>
+                </form>
             </div>  
         </div>
 @endsection

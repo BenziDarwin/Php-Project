@@ -28,4 +28,19 @@
     </ul>
 </div>
 
+
+<div class="m-5">
+    @foreach($applications as $application)
+        @if($application["companyName"] == Session::get("name"))
+            <a href="#" class="flex items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 m-3 text-ellipsis overflow-hidden">
+                <div class="flex flex-col justify-between p-4 leading-normal">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$application["applierName"]}}</h5>
+                    <h6>Resume:</h6>
+                    <p class="text-ellipsis mb-3 font-normal text-gray-700 dark:text-gray-400">{{$application["resume"]}}</p>
+                </div>
+            </a>
+        @endif
+    @endforeach
+    </div>
+
 @endsection

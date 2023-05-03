@@ -1,6 +1,8 @@
 @extends("layouts.navbar")
 
 @section("content")
+
+
 <div class="border-b border-gray-200 dark:border-gray-700">
     <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
         <li class="mr-2">
@@ -20,32 +22,18 @@
         </li>
     </ul>
 </div>
-<!-- component -->
-        <div class="flex flex-col justify-center items-center h-[60vh]">
-            <div class="relative flex flex-col items-center rounded-[20px] w-[700px] max-w-[95%] mx-auto bg-white bg-clip-border shadow-3xl shadow-shadow-500 dark:!bg-navy-800 dark:text-white dark:!shadow-none p-3">
-                <div class="grid grid-cols-2 gap-4 px-2 w-full">
-                    <div class="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-                    <p class="text-sm text-gray-600">Name</p>
-                    <p class="text-base font-medium text-navy-700 dark:text-white">
-                        {{$user->name}}
-                    </p>
-                    </div>
 
-                    <div class="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-                    <p class="text-sm text-gray-600">Student Number</p>
-                    <p class="text-base font-medium text-navy-700 dark:text-white">
-                        {{$user->stdNo}}
-                    </p>
-                    </div>
-
-                    <div class="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-                    <p class="text-sm text-gray-600">Course</p>
-                    <p class="text-base font-medium text-navy-700 dark:text-white">
-                        {{$user->course}}
-                    </p>
-                    </div>
+<div class="m-5">
+    @foreach($applications as $application)
+        @if($application["applierName"] == Session::get("name"))
+            <a href="#" class="flex items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 m-3 text-ellipsis overflow-hidden">
+                <div class="flex flex-col justify-between p-4 leading-normal">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$application["applierName"]}}</h5>
+                    <h6>Resume:</h6>
+                    <p class="text-ellipsis mb-3 font-normal text-gray-700 dark:text-gray-400">{{$application["resume"]}}</p>
                 </div>
-                <button type="submit" class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit Profile</button>
-            </div>  
-        </div>
+            </a>
+        @endif
+    @endforeach
+    </div>
 @endsection

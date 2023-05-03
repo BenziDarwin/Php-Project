@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string("applierName");
+            $table->string("companyName");
+            $table->string("resume");
+            $table->foreign("companyName")->references("companyName")->on("companies")->onDelete("cascade");
+            $table->foreign("applierName")->references("name")->on("users")->onDelete("cascade");
         });
     }
 
