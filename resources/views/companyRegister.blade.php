@@ -1,8 +1,8 @@
 @extends("layouts.navbar")
 
 @section("content")
-<section class="bg-gray-50 dark:bg-gray-900">
-    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+<section class="bg-gray-50 dark:bg-gray-900 " style= "height: 120vh" >
+    <div class="flex flex-col items-center justify-center px-6 py-6 mx-auto md:h-screen lg:py-0 mt-20">
         <a href="{{url("/")}}" class="flex items-center">
             <img src="{{ asset('/logos/recruit.png') }}" class="h-8 mr-3" alt="CRMS Logo"/>
             <span class="self-center font-bold whitespace-nowrap dark:text-white">Campus Recruitment MS</span>
