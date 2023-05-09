@@ -1,9 +1,16 @@
 @extends("layouts.navbar")
 
 @section("content")
+<style>
+    .image {
+        background-image: url("../Images/job1.jpg");
+        background-size: cover;
+        
+    }
+</style>
 
 
-<div class="border-b border-gray-200 dark:border-gray-700">
+<div class="border-b border-gray-200 dark:border-gray-700" >
     <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
         <li class="mr-2">
             <a href="{{url("/company-profile")}}"  class="inline-flex p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
@@ -28,10 +35,12 @@
     </ul>
 </div>
 
-<div class="space-y-4 md:space-y-6 m-5">
+<div class="space-y-4 md:space-y-6 p-5 h-screen image grid grid-cols-2 gap-2">
+    <div>
     <form action="{{url("/create-job-start")}}">
         <div class="mb-6">
           <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Title</label>
+          <label for="title" class="block mb-2 text-sm font-medium text-white">Title</label>
           <input type="title" id="title"  name="title" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Job Title..." required>
         </div>
         <div class="mb-6">
@@ -46,6 +55,15 @@
         <input type="hidden"  name="sector" value="{{$company->sector}}"/>
         <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create Job</button>
       </form>
+    </div>
+    <div>
+        <h1 class="text-white">This page is typically located on a company's career page or job board and is intended to attract and inform potential job candidates.
+        <p>The job title is a clear and concise name for the position being advertised, which reflects the main duties and responsibilities of the job. 
+           The job description provides a detailed overview of the job responsibilities, including the essential functions of the position, the required qualifications and skills, and any necessary certifications or licenses.
+           It may also include information on the work environment, such as the physical demands of the job or the required work schedule.
+        </p>
+        </h1>
+    </div>
 </div>
 
   
