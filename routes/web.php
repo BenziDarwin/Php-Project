@@ -53,15 +53,10 @@ Route::get('/job-description/{jobID}', function ($jobID) {
         "job" => Jobs::find($jobID)
     ]);
 });
-Route::get('/user-profile-image', 'UserProfileImageController@index')->name('user-profile-image');
-
 
 Route::get('/profile', function () {
-    $user = DB::table('users')->where('name', Session::get("name"))->first();
-    $userProfileImage = DB::table('user_profile_images')->where('user_id', $user->id)->first();
     return view('profile',[
-        "user" => $user,
-        "userProfileImage" => $userProfileImage
+        "user" => DB::table('users')->where('name', Session::get("name"))->first(),
     ]);
 });
 
