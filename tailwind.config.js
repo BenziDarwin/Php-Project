@@ -5,8 +5,13 @@ module.exports = {
     "./resources/**/*.js",
     "./resources/**/*.vue",
   ],
-  theme: {
-    extend: {},
-  },
+  extend: {
+    colors: {
+      light: {
+        primary: "#FFFFFF", // set your light primary color
+        secondary: "#F0F0F0", // set your light secondary color
+      },
   plugins: [],
+}
+  }
 }

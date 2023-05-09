@@ -41,7 +41,7 @@
                     </p>
                     </div>
                     <div class="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-                    <p class="text-sm text-gray-600">Salary Range</p>
+                    <p class="text-sm text-gray-600 dark:text-black">Salary Range</p>
                     <p class="text-base font-medium text-navy-700 dark:text-white">
                         {{$job->salaryrange}}
                     </p>

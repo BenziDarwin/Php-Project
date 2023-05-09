@@ -1,0 +1,1 @@
+<img src="{{ $userProfileImage->userProfileImage }}" alt="User Profile Image" class="rounded-full w-full">
