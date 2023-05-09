@@ -6,7 +6,7 @@
         @vite(['resources/css/app.css','resources/sass/app.scss', 'resources/js/app.js'])
         <title>CRMS</title>
     </head>
-    <body class="antialiased" style = "height:120vh">  
+    <body class="antialiased">  
     <div id="navbar">
     <nav class="bg-white border-gray-200 dark:bg-gray-900 z-10 shadow-lg ">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
