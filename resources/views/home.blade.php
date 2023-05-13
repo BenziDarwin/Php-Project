@@ -7,7 +7,7 @@
 <div class="m-3">
   <div class="flex mb-4">
     <div class="justify-center">
-      <img src="{{ asset('/images/recruit.jpg') }}" alt="CRMS Logo"/>
+      <img src="{{ asset('/Images/recruit.jpg') }}" alt="CRMS Logo"/>
     </div>
     <div class="w-1/2 justify-center">
       <center>
