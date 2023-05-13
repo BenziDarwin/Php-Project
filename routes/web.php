@@ -53,15 +53,10 @@ Route::get('/job-description/{jobID}', function ($jobID) {
         "job" => Jobs::find($jobID)
     ]);
 });
-Route::get('/user-profile-image', 'UserProfileImageController@index')->name('user-profile-image');
-
 
 Route::get('/profile', function () {
-    $user = DB::table('users')->where('name', Session::get("name"))->first();
-    $userProfileImage = DB::table('user_profile_images')->where('user_id', $user->id)->first();
     return view('profile',[
-        "user" => $user,
-        "userProfileImage" => $userProfileImage
+        "user" => DB::table('users')->where('name', Session::get("name"))->first(),
     ]);
 });
 
@@ -95,6 +90,11 @@ Route::get('/company-jobs', function () {
     ]);
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::post('/update-profile/{id}', 'UserController@updateProfile')->name('updateProfile');
+});
+
+
 Route::get('/logout', [UserController::class, 'logout']);
 
 Route::get('/login-user', [UserController::class, "login"]);
@@ -111,3 +111,8 @@ Route::get('/create-job-start', [JobController::class, "createJob"]);
 
 Route::get('/create-application', [ApplicationsController::class, "createApplication"]);
 
+Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+
+Route::post('/update-profile/{id}', [UserController::class, 'update'])->name('updateProfile');
+
+Route::post('/user/{id}/upload-profile-image', 'UserController@uploadProfileImage')->name('user.uploadProfileImage');

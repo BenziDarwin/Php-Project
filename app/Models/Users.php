@@ -18,6 +18,7 @@ class Users extends Model
         'name',
         'password',
         "course",
-        "stdNo"
+        "stdNo",
+        "profile_image"
     ];
 }
