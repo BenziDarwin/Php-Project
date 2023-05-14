@@ -1,12 +1,6 @@
 @extends("layouts.navbar")
 
 @section("content")
-<style>
-    .image {
-        background-image: url("../Images/company2.jpg");
-        background-size: cover;
-        opacity: 0.7;
-    }
 </style>
 <section class="bg-gray-50 dark:bg-gray-900 image " style= "height: 120vh">
     <div class="flex flex-col items-center justify-center px-6 py-6 mx-auto md:h-screen lg:py-0 mt-20">

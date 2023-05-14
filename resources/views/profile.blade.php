@@ -21,43 +21,58 @@
     </ul>
 </div>
 
-
-<div class="flex items-center">
-  <div class="w-1/3">
-  <form method="POST" action="{{ route('user.uploadProfileImage', $user->id) }}" enctype="multipart/form-data">
-  @csrf
-  <div class="mb-4">
-    <div class="bg-white rounded-lg shadow-lg p-4">
-      <h2 class="text-xl font-bold mb-2">Profile Image</h2>
-    </div>
-    <label for="image" class="relative cursor-pointer">
-      <span class="rounded-full w-48 h-48 bg-gray-200 flex items-center justify-center">
-        @if (isset($userProfileImage) && $userProfileImage)
-          <img id="profile_image" src="{{ Storage::url($userProfileImage) }}" class="rounded-full w-full h-full object-cover">
-        @else
-          <img id="profile_image" src="{{ isset($userProfileImage) && $userProfileImage ? Storage::url($userProfileImage) : 'https://via.placeholder.com/150' }}" alt="User Profile Image" class="rounded-full w-full h-full object-cover">
-        @endif
-      </span>
-      <input type="file" name="profile_image" id="image" class="hidden" onchange="document.getElementById('profile_image').src = window.URL.createObjectURL(this.files[0]); document.getElementById('upload-button').style.display = 'block'">
-    </label>
-  </div>
-  <div class="flex justify-end">
-    <button type="submit" id="upload-button" class="hidden block w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Upload</button>
-  </div>
-</form>
-
-  </div>
-  </div>
+<div class="border-b border-gray-200 dark:border-gray-700">
+    <!-- Navbar code -->
 </div>
 
+<div class="flex items-center">
+    <div class="w-1/3">
+        <form method="POST" action="{{ route('updateProfile', ['id' => $user->id]) }}" enctype="multipart/form-data">
+            @csrf
+            <div class="mb-4">
+                <div class="bg-white rounded-lg shadow-lg p-4">
+                    <h2 class="text-xl font-bold mb-2">Profile Image</h2>
+                </div>
+                <label for="image" class="relative cursor-pointer">
+                    <span class="rounded-full w-48 h-48 bg-gray-200 flex items-center justify-center">
+                        @if(session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                        @endif
+
+                        <!-- Display the profile image -->
+                        <img id="profile_image" src="{{ asset($user->profile_image) }}" alt="User Profile Image" class="rounded-full w-full h-full object-cover">
+
+                            <!-- <img id="profile_image" src="@if(isset($userProfileImage) && $userProfileImage){{ Storage::url($userProfileImage) }}@else{{ 'https://via.placeholder.com/150' }}@endif" alt="User Profile Image" class="rounded-full w-full h-full object-cover @if(isset($userProfileImage) && $userProfileImage){{ '' }}@else{{ 'hidden' }}@endif"> -->
+
+                    </span>
+                    <input type="file" name="profile_image" id="image" class="hidden" onchange="previewImage(this)">
+                </label>
+            </div>
+            <div class="flex justify-end">
+                <button type="submit" id="upload-button" class="hidden block w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Upload</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<!-- Other profile details code -->
+
 <script>
-  // Create a URL object from the selected file and set it as the image source
-  document.getElementById('image').addEventListener('change', function() {
-    dd(document.getElementById('profile_image').src = window.URL.createObjectURL(this.files[0]))
-    document.getElementById('profile_image').src = window.URL.createObjectURL(this.files[0]);
-    document.getElementById('upload-button').style.display = 'block';
-  });
+    function previewImage(input) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        document.getElementById('profile_image').src = e.target.result;
+        document.getElementById('profile_image').classList.remove('hidden');
+        document.getElementById('upload-button').style.display = 'block';
+    }
+    reader.readAsDataURL(input.files[0]);
+}
+
 </script>
+
 
 <!-- component -->
         <div class="flex flex-col justify-center items-center h-[60vh]">
