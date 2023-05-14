@@ -20,7 +20,6 @@
         </li>
     </ul>
 </div>
-
 <div class="border-b border-gray-200 dark:border-gray-700">
     <!-- Navbar code -->
 </div>
@@ -80,14 +79,14 @@
                 <div class="grid grid-cols-2 gap-4 px-2 w-full">
                     <div class="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
                     <p class="text-sm text-gray-600">Name</p>
-                    <p class="text-base font-medium text-navy-700 dark:text-black">
+                    <p class="text-base font-medium text-navy-700 dark:text-white">
                         {{$user->name}}
                     </p>
                     </div>
 
                     <div class="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
                     <p class="text-sm text-gray-600">Student Number</p>
-                    <p class="text-base font-medium text-navy-700 dark:text-black">
+                    <p class="text-base font-medium text-navy-700 dark:text-white">
                         {{$user->stdNo}}
                     </p>
                     </div>
