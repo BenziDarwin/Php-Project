@@ -12,7 +12,7 @@
     <div class="w-1/2 justify-center">
       <center>
         <h2 style="font-size: 30px; margin-top: 100px" class="text-2xl">Campus Recruitment Management System</h2>
-      <h5 class="text-sm mt-3">
+      <h5 class="text-sm mt-3 dark:text-white">
           This system recruits students for jobs that have been set up by company, simply meaning one qualifies to apply for a job if he is a student at the campus.This system partners with companies to offer
            job opportunities exclusively to enrolled students.
            Students meeting the eligibility requirements can apply for the opportunities through various channels. After a thorough screening process, the qualified students are connected with the partnering companies. 

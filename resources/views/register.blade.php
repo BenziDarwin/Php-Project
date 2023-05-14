@@ -4,8 +4,8 @@
 <section class="bg-gray-50 dark:bg-gray-900 image h-screen" >
         <div class="flex flex-col items-center justify-center px-6 py-6 mx-auto md:h-screen lg:py-0 mt-20">
         <a href="{{url("/")}}" class="flex items-center">
-            <img src="{{ asset('/logos/recruit.png') }}" class="h-8 mr-3" alt="CRMS Logo"/>
-            <span class="self-center font-bold whitespace-nowrap dark:text-black">Campus Recruitment MS</span>
+            <img src="{{ asset('/logos/recruit.png') }}" class="h-8 mr-3 flex-none" alt="CRMS Logo"/>
+            <span class="self-center font-bold whitespace-nowrap dark:text-white flex-1">Campus Recruitment MS</span>
         </a>
         <div class="w-full rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">

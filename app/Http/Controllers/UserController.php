@@ -7,9 +7,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Storage;
+use Illuminate\Support\Facades\Storage as FacadesStorage;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
+use App\Http\Controllers\View;
+use Illuminate\View\View as ViewView;
+
 
 class UserController extends Controller
 {
+
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -23,18 +31,42 @@ class UserController extends Controller
     protected function createUser(Request $request)
     {
         //$this->validator($request->all())->validate();
+        //$this->validator($request->all())->validate();
         Users::create([
             'name' => $request['name'],
             'course' => $request['course'],
-            'password' => $request['password'],
             'stdNo' => $request['studentNo'],
+            'password' => $request['password'],
         ]);
-
-        $name = $request->name;
-        Session::put("name", $name);
+        Session::put("name", $request["name"]);
         return redirect()->intended('/jobs');
     }
-    
+    // Store the image data in the database
+    public function update(Request $request, $id)
+    {
+        $user = Users::find($id);
+
+        if ($request->hasFile('profile_image')) {
+            $image = $request->file('profile_image');
+            $filename = $image->getClientOriginalName();
+            $path = $request->file('profile_image')->storeAs('profile_images', $filename, 'public');
+            $user->profile_image = '/storage/' . $path;
+            $user->save();
+        }
+
+        // dd($user);
+
+
+
+        return redirect('/profile')->with('success', 'Profile image updated successfully!');
+    }
+
+    // public function profile()
+    // {
+    //     $userProfileImage = auth()->user()->profile_image;
+       
+    //     return view('user.profile', compact('userProfileImage'));
+    // }
     //
     public function login(Request $request)
     {
@@ -46,7 +78,7 @@ class UserController extends Controller
         $name = $request->name;
         $password = $request->password;
         // Attempt to log the user in
-       if (count(DB::select("select * from users where name = ? and password = ?", [$name, $password])) >= 1) {
+        if (count(DB::select("select * from users where name = ? and password = ?", [$name, $password])) >= 1) {
             Session::put("name", $name);
             return redirect()->intended('/jobs');
         }

@@ -90,6 +90,11 @@ Route::get('/company-jobs', function () {
     ]);
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::post('/update-profile/{id}', 'UserController@updateProfile')->name('updateProfile');
+});
+
+
 Route::get('/logout', [UserController::class, 'logout']);
 
 Route::get('/login-user', [UserController::class, "login"]);
@@ -106,3 +111,8 @@ Route::get('/create-job-start', [JobController::class, "createJob"]);
 
 Route::get('/create-application', [ApplicationsController::class, "createApplication"]);
 
+Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+
+Route::post('/update-profile/{id}', [UserController::class, 'update'])->name('updateProfile');
+
+Route::post('/user/{id}/upload-profile-image', 'UserController@uploadProfileImage')->name('user.uploadProfileImage');
