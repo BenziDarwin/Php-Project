@@ -32,6 +32,7 @@ class UserController extends Controller
     {
         //$this->validator($request->all())->validate();
         //$this->validator($request->all())->validate();
+        //ddd($request);
         Users::create([
             'name' => $request['name'],
             'course' => $request['course'],
